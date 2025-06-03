@@ -38,29 +38,59 @@ BADGES:
 https://github.com/iuricode/readme-template/tree/main/badges-shields'''
 
 contador = 0
-lista = []
+nomes = []
 while True:
     if contador <= 4:
         try :
             nome = input('Digite um nome\n').title()
             
             if not nome.replace(' ','').isalpha():
-                raise ValueError('Digite um nome válido sem números')
+                raise ValueError('Digite um nome válido sem números ou caracteres especiais')
             else:
-                lista.append(nome)
-                contador += 1
-                            
+                if contador==0:
+                    nomes.insert(0,nome)
+                    contador += 1
+                elif contador==1:
+                    nomes.insert(1,nome)
+                    contador += 1
+                elif contador==2:
+                    nomes.insert(2,nome)
+                    contador += 1
+                elif contador==3:
+                    nomes.insert(3,nome)
+                    contador += 1
+                elif contador==4:
+                    nomes.insert(4,nome)
+                    contador += 1
+                else:
+                    print('limite de cadastros alcançado')
+
         except ValueError as e:
             print('Digite um nome válido ')
     
     else:
         break
 
-print(f'Nomes cadastrados:\n{lista}')
+print(f'você cadastrou {contador} nomes. Esses foram os nomes cadastrados:\n{nomes}')
 
-while True
-    try
-    remove=input('Escolha o nome que deseja remover da lista:\n')
+while True:
+    try:
+        nomeremov=input('Digite o nome que deseja remover:\n').title()
+        if not nome.replace(' ','').isalpha():
+            raise ValueError('Digite um nome válido sem números ou caracteres especiais')
+        else:
+            nomes.remove(nomeremov)
+            break
+    except ValueError:
+        print(f'Nome {nomeremov} não consta na lista')
+
+print(f'Essa é a lista sem o nome {nomeremov}:\n{nomes}')
+        
+                    
+                    
+
+
+
     
 
 
